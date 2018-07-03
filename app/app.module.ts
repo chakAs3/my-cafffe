@@ -7,6 +7,8 @@ import { ItemService } from "./item/item.service";
 import { ItemsComponent } from "./item/items.component";
 import { ItemDetailComponent } from "./item/item-detail.component";
 //import { NativeScriptUISideDrawerModule } from 'nativescript-ui-sidedrawer/angular';
+import { TNSCheckBoxModule } from 'nativescript-checkbox/angular';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { ModalComponent } from "./item/item.modal";
 
@@ -24,6 +26,9 @@ import { ModalComponent } from "./item/item.modal";
         NativeScriptModule,
         AppRoutingModule,
         NativeScriptUIListViewModule,
+        ReactiveFormsModule,
+        TNSCheckBoxModule
+        
         
     ],
     declarations: [

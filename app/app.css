@@ -41,4 +41,24 @@ RadListView {
   padding-left: 16;
   padding-right: 16;
 }
-  
+
+.font-awesome {
+  font-family: 'FontAwesome', fontawesome-webfont;
+}
+
+.switch {
+  width: 35px;
+  height: 20px;
+  background: #dadada;
+}
+.switch small {
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+}
+.switch.checked small {
+  left: 15px;
+}
+.switch:focus {
+  outline: none;
+}

@@ -44,6 +44,12 @@ class names available for styling your app at https://docs.nativescript.org/ui/t
             </GridLayout>
 </StackLayout>-->
 
+<ActionBar title="My Cafffe">
+        <ActionItem  ios.position="left" (tap)="openDrawer()">
+                <Button text="&#xf0c9;" class="font-awesome" ></Button>
+        </ActionItem>
+</ActionBar>
+
    <GridLayout class="page page-content">
             <RadListView [items]="items" class="list-group">
       
@@ -56,13 +62,23 @@ class names available for styling your app at https://docs.nativescript.org/ui/t
         
                             <Image row="2" [src]="item.img" stretch="aspectFill" height="120" class="m-r-20"></Image>
                             <StackLayout row="2" col="1" verticalAlignment="center" class="list-group-item-text">
-                                <Label class="p-b-10">
+                                <Label class="p-b-10 text-center">
                                     
                                     <FormattedString ios:fontFamily="system">
-                                        <Span text="&#xf1b9;   " class="fa text-primary"></Span>
+                                        <Span text="&#xf0f4; " class="fa text-primary"></Span>
                                         <Span [text]="item.name"></Span>
                                     </FormattedString>
                                 </Label>
+
+                                <Label class="p-b-10 text-center">
+                                        <FormattedString ios:fontFamily="system">
+                                                <Span text="&#xf155;   " class="fa text-primary"></Span>
+                                                <Span [text]="item.price"></Span>
+                                            </FormattedString>
+                                </Label >
+
+                                <Button text="Order Now" class="btn btn-primary p-b-10"></Button>
+
                                 
                                 
                             </StackLayout>

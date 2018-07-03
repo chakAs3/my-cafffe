@@ -12,7 +12,7 @@
         <GridLayout rows="auto" columns="auto,*,auto" class="action-bar p-10">
                 <Button text='X' (tap)="close()" row="0" col="0" class="action-item">
                 </Button>
-                <Label [text]="Detail" row="0" col="1" class="action-bar-title text-center"></Label>
+                <Label [text]="frameworks[0].name" row="0" col="1" class="action-bar-title text-left"></Label>
             </GridLayout>
             <StackLayout>
                     <GridLayout tkExampleTitle tkToggleNavButton>
@@ -22,12 +22,67 @@
                                
                                         <GridLayout verticalAlignment="bottom">
                                             <StackLayout class="labelsStackLayout">
-                                                        <Image [src]="frameworks[0].img" style="opacity: 1;"></Image>
-                                                        <Label text="Chose your options" class="h3"></Label>
-                                            </StackLayout>
-                                            <StackLayout horizontalAlignment="center">
-                                                <Label [text]="frameworks[0].name" class="h2"></Label>
-                    
+                                                        <Image [src]="frameworks[0].img" style="opacity: 1;" width="200" height="200"></Image>
+                                                        <Label text="Customize" class="h2 bold m-t-5" horizontalAlignment="left"></Label>
+
+                                                        <Label text="You can now customize your coffee according to your needs.." class="h6  m-2" horizontalAlignment="left"></Label>
+                                                        <Label text="Choices Checkboxes" class="h2 m-t-15" horizontalAlignment="left"></Label>
+                                                            
+                                                                <StackLayout orientation="horizontal" class="p-10">
+                                                                
+                                                                <CheckBox #reactiveCheck ngDefaultControl [(ngModel)]="testChecking.sugar"row="0" col="0" ></CheckBox>
+                                                                <Label text="Option 1" (tap)="reactiveCheck.toggle()" class="h3" row="0" col="1"></Label>
+                                                                
+                                                                </StackLayout>
+
+                                                                <StackLayout orientation="horizontal" class="p-10">
+                                                                
+                                                                        <CheckBox #reactiveCheck ngDefaultControl [(ngModel)]="testChecking.random" row="0" col="0" ></CheckBox>
+                                                                        <Label text="Option 2" (tap)="reactiveCheck.toggle()" class="h3" row="0" col="1" ></Label>
+                                                               
+                                                                </StackLayout>
+                                                            <Label text="Choose Radios" class="h2 m-t-15" horizontalAlignment="left"></Label>
+                                                            <!--<StackLayout>
+
+                                                                <GridLayout rows="* *" columns="* * * *" class="p-10">
+                                                                        <small><Switch class="m-2" ngDefaultControl [(ngModel)]="testChecking.milk" checked="false" row="0" col="0" (checkedChange)="onFirstChecked($event)" class="pull-left"></Switch></small>
+                                                                            <Label class="h3 m-2" text="Milk" textWrap="true" row="0" col="1" ></Label>
+                                                                    </GridLayout>
+                                                            </StackLayout> 
+                                                            
+                                                            <StackLayout>
+
+                                                                    <GridLayout rows="* *" columns="* * * *" class="p-10">
+                                                                            <small><Switch class="m-2" ngDefaultControl [(ngModel)]="testChecking.iced" checked="false" row="0" col="0" (checkedChange)="onFirstChecked($event)" class="pull-left"></Switch></small>
+                                                                                <Label class="h3 m-2" text="Iced" textWrap="true" row="0" col="1" ></Label>
+                                                                        </GridLayout>
+                                                                </StackLayout> -->
+
+                                                                <StackLayout class="p-10" *ngFor="let option of radioOptions">
+                                                                        <StackLayout class="form-group" [formGroup]="formGroup" orientation="horizontal" verticalAlignment="center">
+                                                                            <CheckBox #elem [checked]="option.selected" (checkedChange)="elem.checked !== option.selected && changeCheckedRadio(option)" class="checkbox" boxType="circle"></CheckBox>
+                                                                            <StackLayout verticalAlignment="center">
+                                                                                <Label [text]="option.text" value="123" textWrap="true" (tap)="changeCheckedRadio(option)"></Label>
+                                                                            </StackLayout>
+                                                                        </StackLayout>
+                                                                </StackLayout>
+                                                                
+                                                            
+                                                            
+                                                
+                                                            <StackLayout class="p-10">
+                                                                <Button text="Submit Values" (tap)="submit()" class="btn btn-primary fixed"></Button>
+                                                            </StackLayout>
+
+
+
+                                                       
+
+
+
+
+        
+                                                        
                                             </StackLayout>
                                         </GridLayout>
                                     </GridLayout>
