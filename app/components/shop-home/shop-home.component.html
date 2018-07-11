@@ -1,0 +1,43 @@
+<ActionBar title="Shop">
+</ActionBar>
+
+<GridLayout class="page page-content">
+        <RadListView [items]="shopProducts" class="list-group">
+  
+            <ng-template tkListItemTemplate let-item="item">
+                <StackLayout class="list-group-item" (tap)="showModal(item)">
+                    <GridLayout rows="*, *, *" columns="*, *" class="list-group-item-content">
+                        <Label [text]="item.data().name" class="text-primary font-weight-bold"></Label>
+    
+                        <StackLayout row="1" class="hr-light m-t-5 m-b-5" colSpan="2"></StackLayout>
+    
+                        <Image row="2" [src]="item.data().image_url" stretch="aspectFill" height="120" class="m-r-20"></Image>
+                        <StackLayout row="2" col="1" verticalAlignment="center" class="list-group-item-text">
+                            <Label class="p-b-10 text-center">
+                                
+                                <FormattedString ios:fontFamily="system">
+                                    <Span text="&#xf0f4; " class="fa text-primary"></Span>
+                                    <Span [text]="item.name"></Span>
+                                </FormattedString>
+                            </Label>
+
+                            <Label class="p-b-10 text-center">
+                                    <FormattedString ios:fontFamily="system">
+                                            <Span text="&#xf155;   " class="fa text-primary"></Span>
+                                            <Span [text]="item.base_price"></Span>
+                                        </FormattedString>
+                            </Label >
+
+                            <Button text="Order Now" class="btn btn-primary p-b-10"></Button>
+
+                            
+                            
+                        </StackLayout>
+                    </GridLayout>
+                </StackLayout>
+            </ng-template>
+        </RadListView>
+    
+        <ActivityIndicator [busy]="isLoading"></ActivityIndicator>
+    </GridLayout>
+

@@ -1,0 +1,25 @@
+<StackLayout margin="5">
+    <GridLayout >
+        <RadListView [items]="items" style="height: auto;" >
+            <ng-template tkListItemTemplate let-item="item" >
+                <GridLayout class="listItemTemplateGrid" rows="150" >
+                    <CardView class="cardStyle" margin="10" elevation="0" radius="5" (tap)="showModal(item)">
+                        <GridLayout rows="90,20" columns="auto,auto" horizontalAlignment="center">
+                          <StackLayout  class="m-10" col="0" row="0">
+                          <Image [src]="item.image"></Image>
+                          </StackLayout>
+          
+                          <StackLayout col="0" row="1" horizontalAlignment="center">
+                              <Label  [text]="item.itemName" textWrap="true" ></Label>
+                          </StackLayout>
+                        </GridLayout>
+                      </CardView>
+                </GridLayout>
+            </ng-template>
+    
+            <!-- >> angular-listview-item-layouts-grid -->
+            <ListViewGridLayout tkListViewLayout scrollDirection="Vertical" ios:itemHeight="200" spanCount="2"></ListViewGridLayout>
+            <!-- << angular-listview-item-layouts-grid -->
+        </RadListView>
+    </GridLayout>
+</StackLayout>

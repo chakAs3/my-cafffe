@@ -7,6 +7,9 @@
 		"id": "org.nativescript.mycafffe",
 		"tns-ios": {
 			"version": "4.1.1"
+		},
+		"tns-android": {
+			"version": "4.1.3"
 		}
 	},
 	"dependencies": {
@@ -20,16 +23,27 @@
 		"@angular/platform-browser-dynamic": "~6.0.0",
 		"@angular/router": "~6.0.0",
 		"nativescript-angular": "~6.0.0",
+		"nativescript-cardview": "^3.1.0",
 		"nativescript-checkbox": "^3.0.3",
+		"nativescript-drop-down": "^4.0.1",
+		"nativescript-feedback": "^1.2.0",
+		"nativescript-floatingactionbutton": "^4.1.3",
+		"nativescript-plugin-firebase": "^6.4.0",
 		"nativescript-radiobutton": "^0.1.0",
+		"nativescript-snackbar": "^3.1.0",
 		"nativescript-theme-core": "~1.0.4",
 		"nativescript-ui-listview": "^3.5.8",
+		"nativescript-ui-sidedrawer": "^4.1.1",
 		"reflect-metadata": "~0.1.8",
 		"rxjs": "~6.1.0",
-		"tns-core-modules": "~4.1.0",
+		"tns-core-modules": "^4.1.0",
 		"zone.js": "^0.8.26"
 	},
 	"devDependencies": {
+		"babel-traverse": "6.26.0",
+		"babel-types": "6.26.0",
+		"babylon": "6.18.0",
+		"lazy": "1.0.11",
 		"nativescript-dev-typescript": "~0.7.0",
 		"typescript": "~2.7.2"
 	}

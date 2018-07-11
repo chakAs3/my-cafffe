@@ -3,6 +3,9 @@ import { ModalDialogParams } from "nativescript-angular/directives/dialogs";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { RadioOption } from "./radio-option";
 import { Switch } from "ui/switch";
+import { registerElement } from "nativescript-angular/element-registry";
+registerElement("Fab", () => require("nativescript-floatingactionbutton").Fab);
+
 @Component({
     selector: "my-modal",
     moduleId: module.id,
@@ -16,13 +19,18 @@ export class ModalComponent implements OnInit {
     sugarCheck?: Array<RadioOption>;
     radioOptions?: Array<RadioOption>;
     model:Object = [];
-    testChecking:Object = {'sugar':false,'milk':false};
+    public options:Object= [];
+    testChecking:Object = {};
     //@ViewChild("elem") checkTest: ElementRef;
 
     public constructor(private params: ModalDialogParams, private formBuilder: FormBuilder,) {
         console.log(params.context);
         this.frameworks.push(params.context.item);
         console.log(this.frameworks);
+
+        this.options = params.context.item.options
+        console.log(this.options);  
+        this.testChecking['total'] = params.context.item.price;
     }
 
     ngOnInit(): void {
@@ -101,6 +109,23 @@ export class ModalComponent implements OnInit {
               this.testChecking['milk'] = false;
           }
       }
+
+      public addTotal(price,name) {
+        
+        setTimeout(() => {
+        console.log(this.testChecking[name]);
+        if(this.testChecking[name] == true){
+        console.log("Adding Total")
+        this.testChecking['total'] += price;
+        console.log(this.testChecking);
+            }
+            else{
+                this.testChecking['total'] -= price;
+            }
+
+        }, 100);
+    }
+
   
 
 }

@@ -1,0 +1,33 @@
+<ActionBar title="DashBoard">
+    <ActionItem  ios.position="left" (tap)="openDrawer()">
+            <Button text="&#xf0c9;" class="font-awesome-home" ></Button>
+    </ActionItem>
+
+    <ActionItem  ios.position="true" >
+        <Button text="&#xf2be;"  class="font-awesome-home" [nsRouterLink]="['/items']"></Button>
+    </ActionItem>
+</ActionBar>
+<GridLayout>
+<scroll-view>
+<StackLayout>
+    <CardView class="cardStyle" margin="10" elevation="20" radius="5" *ngFor="let data of shops" verticalAlignment="top">
+        <GridLayout rows="100,10" columns="120,200,20" class="grid" [nsRouterLink]="['/shop', data.id]">
+          <Image [src]="data.data().image_url" width="100" height="150" row="0" col="0" class="img-shop"></Image>
+          <StackLayout orientation="vertical" row="0" col="1" class="shop-info">
+          <Label [text]="data.data().name" row="0" col="1" style="font-size:16px;font-weight: 600;margin-bottom:10px"></Label>
+          <Label [text]="data.data().location" row="0" col="1" style="font-size:13px;font-weight: 300;margin-bottom:10px"></Label>
+          <Label [text]="data.data().phone" row="0" col="1"></Label>
+          </StackLayout>
+          <StackLayout row="0" col="2" orientation="vertical" class="m-t-20">
+          <!-- Rating Area -->
+          </StackLayout>
+          <!--<Label class="text-left" horizontalAlignment="left" [text]="data.name" row="1" col="2" textWrap="false"></Label>
+          <Label class="createdOn text-left" horizontalAlignment="left" [text]="data.location" row="2" col="2"></Label>
+    
+          <Label horizontalAlignment="left" [text]="data.starts_at" colSpan="3" row="4" textWrap="true" col="1"></Label>
+          <Label  horizontalAlignment="left" [text]="data.ends_at" textWrap="true" col="1" row="5" colSpan="3"></Label>-->
+        </GridLayout>
+      </CardView>
+</StackLayout>
+</scroll-view>
+</GridLayout>

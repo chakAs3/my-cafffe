@@ -8,6 +8,10 @@ import { ModalComponent } from "./item.modal";
 
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
+import firebase = require("nativescript-plugin-firebase/app");
+
+
+
 @Component({
     selector: "ns-items",
     moduleId: module.id,
@@ -25,6 +29,10 @@ export class ItemsComponent implements OnInit {
     ngOnInit(): void {
         this.items = this.itemService.getItems();
         //this.changeYes = true;
+        console.log(this.items);
+        firebase.initializeApp({
+            persist: false
+          });
     }
 
     public showModal(item) {

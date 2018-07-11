@@ -1,4 +1,3 @@
-
 <!--<ListView [items]="frameworks"  (itemTap)="onItemTap($event)" class="list-group" > 
         <ng-template let-framework="item" let-i="index" let-odd="odd" let-even="even">
           <GridLayout class="list-group-item" rows="auto" columns="auto, *">
@@ -8,90 +7,63 @@
           </GridLayout>
         </ng-template>
 </ListView>-->
+
+
 <StackLayout>
         <GridLayout rows="auto" columns="auto,*,auto" class="action-bar p-10">
-                <Button text='X' (tap)="close()" row="0" col="0" class="action-item">
-                </Button>
-                <Label [text]="frameworks[0].name" row="0" col="1" class="action-bar-title text-left"></Label>
-            </GridLayout>
-            <StackLayout>
-                    <GridLayout tkExampleTitle tkToggleNavButton>
-                            <RadListView [items]="frameworks" >
-                                <ng-template tkListItemTemplate>
-                                    <GridLayout class="listItemTemplateGrid">
-                               
-                                        <GridLayout verticalAlignment="bottom">
-                                            <StackLayout class="labelsStackLayout">
-                                                        <Image [src]="frameworks[0].img" style="opacity: 1;" width="200" height="200"></Image>
-                                                        <Label text="Customize" class="h2 bold m-t-5" horizontalAlignment="left"></Label>
-
-                                                        <Label text="You can now customize your coffee according to your needs.." class="h6  m-2" horizontalAlignment="left"></Label>
-                                                        <Label text="Choices Checkboxes" class="h2 m-t-15" horizontalAlignment="left"></Label>
-                                                            
-                                                                <StackLayout orientation="horizontal" class="p-10">
-                                                                
-                                                                <CheckBox #reactiveCheck ngDefaultControl [(ngModel)]="testChecking.sugar"row="0" col="0" ></CheckBox>
-                                                                <Label text="Option 1" (tap)="reactiveCheck.toggle()" class="h3" row="0" col="1"></Label>
-                                                                
-                                                                </StackLayout>
-
-                                                                <StackLayout orientation="horizontal" class="p-10">
-                                                                
-                                                                        <CheckBox #reactiveCheck ngDefaultControl [(ngModel)]="testChecking.random" row="0" col="0" ></CheckBox>
-                                                                        <Label text="Option 2" (tap)="reactiveCheck.toggle()" class="h3" row="0" col="1" ></Label>
-                                                               
-                                                                </StackLayout>
-                                                            <Label text="Choose Radios" class="h2 m-t-15" horizontalAlignment="left"></Label>
-                                                            <!--<StackLayout>
-
-                                                                <GridLayout rows="* *" columns="* * * *" class="p-10">
-                                                                        <small><Switch class="m-2" ngDefaultControl [(ngModel)]="testChecking.milk" checked="false" row="0" col="0" (checkedChange)="onFirstChecked($event)" class="pull-left"></Switch></small>
-                                                                            <Label class="h3 m-2" text="Milk" textWrap="true" row="0" col="1" ></Label>
-                                                                    </GridLayout>
-                                                            </StackLayout> 
-                                                            
-                                                            <StackLayout>
-
-                                                                    <GridLayout rows="* *" columns="* * * *" class="p-10">
-                                                                            <small><Switch class="m-2" ngDefaultControl [(ngModel)]="testChecking.iced" checked="false" row="0" col="0" (checkedChange)="onFirstChecked($event)" class="pull-left"></Switch></small>
-                                                                                <Label class="h3 m-2" text="Iced" textWrap="true" row="0" col="1" ></Label>
-                                                                        </GridLayout>
-                                                                </StackLayout> -->
-
-                                                                <StackLayout class="p-10" *ngFor="let option of radioOptions">
-                                                                        <StackLayout class="form-group" [formGroup]="formGroup" orientation="horizontal" verticalAlignment="center">
-                                                                            <CheckBox #elem [checked]="option.selected" (checkedChange)="elem.checked !== option.selected && changeCheckedRadio(option)" class="checkbox" boxType="circle"></CheckBox>
-                                                                            <StackLayout verticalAlignment="center">
-                                                                                <Label [text]="option.text" value="123" textWrap="true" (tap)="changeCheckedRadio(option)"></Label>
-                                                                            </StackLayout>
-                                                                        </StackLayout>
-                                                                </StackLayout>
-                                                                
-                                                            
-                                                            
-                                                
-                                                            <StackLayout class="p-10">
-                                                                <Button text="Submit Values" (tap)="submit()" class="btn btn-primary fixed"></Button>
-                                                            </StackLayout>
-
-
-
-                                                       
-
-
-
-
-        
-                                                        
-                                            </StackLayout>
+            <Button text='X' (tap)="close()" row="0" col="0" class="action-item">
+                    </Button>
+            <Label [text]="frameworks[0].name" row="0" col="1" class="action-bar-title text-left"></Label>
+            <Label text="AED" row ="0" col ="2" class="pull-right m-r-25"></Label>
+            <Label [text]="testChecking.total"  row ="0" col ="2" class="pull-right"></Label>
+        </GridLayout>
+        <StackLayout>
+            <GridLayout tkExampleTitle tkToggleNavButton>
+                <RadListView [items]="frameworks">
+                    <ng-template tkListItemTemplate>
+                        <GridLayout class="listItemTemplateGrid">
+    
+                            <GridLayout verticalAlignment="bottom">
+                                <StackLayout class="labelsStackLayout">
+                                    <Image [src]="frameworks[0].img" style="opacity: 1;" width="200" height="200"></Image>
+                                    <Label text="Customize" class="h2 bold m-t-5" horizontalAlignment="left"></Label>
+    
+                                    <Label text="You can now customize your coffee according to your needs.." class="h6  m-2" horizontalAlignment="left"></Label>
+                                    <Label text="Choices Checkboxes" class="h2 m-t-15" horizontalAlignment="left"></Label>
+                                    
+                                    <StackLayout orientation="horizontal" class="p-10" *ngFor="let checkboxes of options">
+                                        <GridLayout rows="* * *" cols="* * *" (tap)="addTotal(checkboxes.price, checkboxes.name)">
+                                        <CheckBox  #reactiveCheck ngDefaultControl [(ngModel)]="testChecking[checkboxes.name]" row="0" col="0" ></CheckBox>
+                                        <Label #reactiveCheck [text]="checkboxes.name" class="h3 m-l-25" row="0" col="1"  ></Label>
+                                        <Label text="AED" class="h3 pull-right m-r-10" row="0" col="2"></Label>
+                                        <Label [text]="checkboxes.price" class="h3 pull-right" row="0" col="2"></Label>
                                         </GridLayout>
-                                    </GridLayout>
-                                </ng-template>
-                                
-                                <!-- >> angular-listview-item-animations-html -->
-                                <ListViewLinearLayout tkListViewLayout scrollDirection="Vertical" itemInsertAnimation="Default" itemDeleteAnimation="Default"></ListViewLinearLayout>
-                                <!-- << angular-listview-item-animations-html -->
-                            </RadListView>
-                    </GridLayout>
-            </StackLayout>       
-</StackLayout>
+                                    </StackLayout>
+                                    <Label text="Choose Radios" class="h2 m-t-15" horizontalAlignment="left"></Label>
+                                    <StackLayout class="p-10" *ngFor="let option of radioOptions">
+                                        <StackLayout class="form-group" [formGroup]="formGroup" orientation="horizontal" verticalAlignment="center">
+                                            <CheckBox #elem [checked]="option.selected" (checkedChange)="elem.checked !== option.selected && changeCheckedRadio(option)" class="checkbox" boxType="circle"></CheckBox>
+                                            <StackLayout verticalAlignment="center">
+                                                <Label [text]="option.text"  textWrap="true" (tap)="changeCheckedRadio(option)"></Label>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                            </GridLayout>
+                        </GridLayout>
+                    </ng-template>
+    
+                    <!-- >> angular-listview-item-animations-html -->
+                    <ListViewLinearLayout tkListViewLayout scrollDirection="Vertical" itemInsertAnimation="Default" itemDeleteAnimation="Default"></ListViewLinearLayout>
+                    <!-- << angular-listview-item-animations-html -->
+
+                  
+                </RadListView>
+                
+                <FAB row="1" col="1" (tap)="submit()" icon="~/images/store.png" rippleColor="#f1f1f1" class="fab-button" text="1234"></FAB>
+            </GridLayout>
+
+        </StackLayout>
+        
+
+    </StackLayout>

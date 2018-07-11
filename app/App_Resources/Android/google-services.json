@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "306002241719",
+    "firebase_url": "https://my-cafffe.firebaseio.com",
+    "project_id": "my-cafffe",
+    "storage_bucket": "my-cafffe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:306002241719:android:99d51856201a2a6d",
+        "android_client_info": {
+          "package_name": "org.nativescript.mycafffe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "306002241719-ugko2v3isfv28cjt5h07lgljuv80rfhk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjeMGgK4oYF-zeBfVmiA11otuVxafMeZQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

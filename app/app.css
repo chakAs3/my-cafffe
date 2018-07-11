@@ -46,6 +46,11 @@ RadListView {
   font-family: 'FontAwesome', fontawesome-webfont;
 }
 
+.font-awesome-home {
+  font-family: 'FontAwesome', fontawesome-webfont;
+  font-size: 20px;
+}
+
 .switch {
   width: 35px;
   height: 20px;
@@ -61,4 +66,22 @@ RadListView {
 }
 .switch:focus {
   outline: none;
+}
+
+.fab-button {
+  height: 50;
+  width: 95%;
+  margin: 10;
+  background-color: #ff4081;
+  vertical-align: bottom;
+}
+
+.cardStyle {
+  background-color: #FFFFFF;
+  color: #000;
+  box-shadow: #FFFFFF !important;
+}
+
+scroll-view{
+  background-color:#eee !important;
 }
